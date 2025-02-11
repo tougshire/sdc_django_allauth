@@ -1,5 +1,4 @@
-# Project Title
-
+# SDC Django Allauth
 A customization of Django-Allauth for a specific project
 
 ## Requirements
