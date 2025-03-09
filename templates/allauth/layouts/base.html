@@ -50,11 +50,13 @@
                                 <a href="{{ connections_url_ }}">{% trans "Account Connections" %}</a>
                             </li>
                         {% endif %}
-                        {% url 'mfa_index' as mfa_url_ %}
-                        {% if mfa_url_ %}
-                            <li>
+                        {% if sdc_allauth_allow_mfa_setup %}
+                          {% url 'mfa_index' as mfa_url_ %}
+                          {% if mfa_url_ %}
+                              <li>
                                 <a href="{{ mfa_url_ }}">{% trans "Two-Factor Authentication" %}</a>
                             </li>
+                          {% endif %}
                         {% endif %}
                         {% url 'usersessions_list' as usersessions_list_url_ %}
                         {% if usersessions_list_url_ %}
@@ -75,7 +77,7 @@
                                 <a href="{{ login_url_ }}">{% trans "Sign In" %}</a>
                             </li>
                         {% endif %}
-			{% if sdc_allauth_is_open_for_signup %}
+			                  {% if sdc_allauth_is_open_for_signup %}
                             {% url 'account_signup' as signup_url_ %}
                             {% if signup_url_ %}
                                 <li>
